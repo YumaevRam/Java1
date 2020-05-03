@@ -3,24 +3,10 @@ package ru.progwards.java1.lessons.classes;
 public class ComplexNum {
     public int a;
     public int b;
-    public int c;
-    public int d;
 
-    ComplexNum(){
-
-    }
     public ComplexNum(int a, int b){
-        this();
         this.a = a;
         this.b = b;
-
-    }
-    public ComplexNum(int a, int b, int c, int d){
-        this();
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
     }
 
     public String toString(){
@@ -28,36 +14,47 @@ public class ComplexNum {
     }
 
     public ComplexNum add(ComplexNum num){
-        int n2 = num.a+num.c;
-        int n3 = num.b+num.d;
-        ComplexNum nu = new ComplexNum(n2,n3);
-        return  nu;
+        int x = this.a+num.a;
+        int y = this.b+num.b;
+        ComplexNum n = new ComplexNum(x,y);
+        return n;
     }
+
     public ComplexNum sub(ComplexNum num){
-        int n2 = num.a-num.c;
-        int n3 = num.b-num.d;
-        ComplexNum nu = new ComplexNum(n2,n3);
-        return  nu;
+    // вычисление по формуле (a - c) + (b - d)i
+        int x = this.a-num.a;
+        int y = this.b-num.b;
+        ComplexNum n = new ComplexNum(x,y);
+        return  n;
     }
     public ComplexNum mul(ComplexNum num){
-        int n2 = num.a*num.c-num.b*num.d;
-        int n3 = num.b*num.c+num.a*num.d;
-        ComplexNum nu = new ComplexNum(n2,n3);
-        return nu;
+    // вычисление по формуле(a + bi) * (c + di) = (a*c - b*d) + (b*c + a*d)i
+    // где переменные a & b = ссылаются на num1
+    // а переменные с & в = ссылаются на num2
+        int x = this.a*num.a-this.b*num.b;
+        int y = this.b*num.a+this.a*num.b;
+        ComplexNum n = new ComplexNum(x,y);
+        return n;
     }
     public ComplexNum div(ComplexNum num){
-        int n2 = (num.a*num.c+num.b*num.d)/(num.c*num.c+num.d*num.d);
-        int n3 = (num.b*num.c-num.a*num.d)/(num.c*num.c+num.d*num.d);
-        ComplexNum nu = new ComplexNum(n2,n3);
-        return nu;
+    //вычисление по формуле (a + bi) / (c + di) = (a*c + b*d)/(c*c+d*d) + ((b*c - a*d)/(c*c+d*d))i
+    // где переменные a & b = ссылаются на num1
+    // а переменные с & в = ссылаются на num2
+        int x = (this.a*num.a+this.b*num.b)/(num.a*num.a+num.b*num.b);
+        int y = (this.b*num.a-this.a*num.b)/(num.a*num.a+num.b*num.b);
+        ComplexNum n = new ComplexNum(x,y);
+        return n;
     }
     public static void main(String[] args) {
-        ComplexNum n1 = new ComplexNum();
-        ComplexNum num = new ComplexNum(8,6,4,2);
-        System.out.println(n1.add(num));
-        System.out.println(n1.sub(num));
-        System.out.println(n1.mul(num));
-        System.out.println(n1.div(num));
+
+
+        ComplexNum num1 = new ComplexNum(1,1);
+        ComplexNum num2 = new ComplexNum(99,99);
+        System.out.println(num1.add(num2));
+        System.out.println(num1.sub(num2));
+        System.out.println(num1.mul(num2));
+        System.out.println(num1.div(num2));
+
     }
 
 }

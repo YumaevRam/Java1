@@ -1,18 +1,20 @@
 package ru.progwards.java1.lessons.classes;
 
 public class Duck extends Animal{
-    Animal animal = new Animal();
-    AnimalKind duck = AnimalKind.DUCK;
-    FoodKind food = FoodKind.CORN;
+
+    public Duck(double weight) {
+        super(weight);
+    }
+
 
     @Override
     public AnimalKind getKind() {
-        return duck;
+        return AnimalKind.DUCK;
     }
 
     @Override
     public FoodKind getFoodKind() {
-        return food;
+        return FoodKind.CORN;
     }
     public double getFoodCoeff(){
         return 0.04;

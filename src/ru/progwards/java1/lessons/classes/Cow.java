@@ -1,16 +1,19 @@
 package ru.progwards.java1.lessons.classes;
 
 public class Cow extends Animal{
-    Animal animal = new Animal();
-    AnimalKind cow = AnimalKind.COW;
-    FoodKind food = FoodKind.HAY;
+
+
+    public Cow(double weight) {
+        super(weight);
+    }
+
     @Override
     public AnimalKind getKind() {
-        return cow;
+        return AnimalKind.COW;
     }
     @Override
     public FoodKind getFoodKind() {
-        return food;
+        return FoodKind.HAY;
     }
 
     @Override

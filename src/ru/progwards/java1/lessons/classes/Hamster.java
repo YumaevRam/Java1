@@ -1,17 +1,19 @@
 package ru.progwards.java1.lessons.classes;
 
 public class Hamster extends  Animal{
-    Animal animal = new Animal();
-    AnimalKind hamster = AnimalKind.HAMSTER;
-    FoodKind food = FoodKind.CORN;
+    public Hamster (double weight){
+        super(weight);
+    }
+
+
     @Override
     public AnimalKind getKind() {
-        return hamster;
+        return AnimalKind.HAMSTER;
     }
 
     @Override
     public FoodKind getFoodKind() {
-        return food;
+        return FoodKind.CORN;
     }
     public double getFoodCoeff(){
         return 0.03;

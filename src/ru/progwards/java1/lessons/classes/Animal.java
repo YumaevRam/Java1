@@ -3,35 +3,29 @@ package ru.progwards.java1.lessons.classes;
 public class Animal {
     double weight;
 
-    AnimalKind animal = AnimalKind.ANIMAL;
-    FoodKind food = FoodKind.UNKNOWN;
-    public Animal(){
-
-    }
     public Animal(double weight){
         this.weight=weight;
     }
 
 
-enum AnimalKind{
-    ANIMAL,
-    COW,
-    DUCK,
-    HAMSTER
- }
+    enum AnimalKind{
+        ANIMAL,
+        COW,
+        DUCK,
+        HAMSTER
+    }
 
     public AnimalKind getKind(){
 
-        return animal;
+        return AnimalKind.ANIMAL;
     }
-enum FoodKind{
-    UNKNOWN,
-    HAY,
-    CORN
-}
+    enum FoodKind{
+        UNKNOWN,
+        HAY,
+        CORN
+    }
     public FoodKind getFoodKind() {
-
-    return food;
+    return FoodKind.UNKNOWN;
     }
 
     public String toString() {
